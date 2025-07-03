@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pulse Weekly - Your Weekly AI & Robotics Intelligence</title>
+    <meta name="description" content="Stay ahead with the latest AI breakthroughs, research papers, and industry news. Curated weekly by AI for busy professionals.">
+    <meta name="keywords" content="artificial intelligence, AI newsletter, machine learning, robotics, tech news, AI research">
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aipulseweekly.com">
+<meta property="og:title" content="AI Pulse Weekly - Your Weekly AI Intelligence">
+<meta property="og:description" content="The smartest AI newsletter. Research, breakthroughs, and industry insights delivered weekly.">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://aipulseweekly.com">
+<meta property="twitter:title" content="AI Pulse Weekly - Your Weekly AI Intelligence">
+<meta property="twitter:description" content="The smartest AI newsletter. Research, breakthroughs, and industry insights delivered weekly.">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        line-height: 1.6;
+        color: #1a202c;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    /* Hero Section */
+    .hero {
+        text-align: center;
+        color: white;
+        padding: 60px 0;
+        margin-bottom: 40px;
+    }
+    
+    .hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        letter-spacing: -0.02em;
+    }
+    
+    .hero .subtitle {
+        font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        margin-bottom: 30px;
+        opacity: 0.95;
+        font-weight: 300;
+    }
+    
+    .hero .tagline {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        opacity: 0.9;
+        max-width: 700px;
+        margin: 0 auto 40px;
+        font-weight: 300;
+    }
+    
+    .badge {
+        background: rgba(255,255,255,0.2);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 20px;
+        display: inline-block;
+        backdrop-filter: blur(10px);
+    }
+    
+    /* Main CTA Section */
+    .cta-main {
+        background: white;
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        margin-bottom: 60px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .cta-main::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+    }
+    
+    .signup-form {
+        max-width: 500px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .signup-form h2 {
+        color: #1a202c;
+        margin-bottom: 15px;
+        font-size: 2.2rem;
+        font-weight: 700;
+    }
+    
+    .signup-form .value-prop {
+        color: #4a5568;
+        margin-bottom: 35px;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+    
+    .form-container {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .form-container input {
+        flex: 1;
+        min-width: 250px;
+        padding: 18px 20px;
+        font-size: 1.1rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        font-family: inherit;
+    }
+    
+    .form-container input:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    
+    .subscribe-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 18px 35px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        min-width: 180px;
+    }
+    
+    .subscribe-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+    }
+    
+    .trust-indicators {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 25px;
+        font-size: 0.9rem;
+        color: #718096;
+        flex-wrap: wrap;
+    }
+    
+    .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    
+    /* Features Grid */
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+    
+    .feature {
+        background: white;
+        border-radius: 16px;
+        padding: 40px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .feature:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .feature-icon {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        display: block;
+    }
+    
+    .feature h3 {
+        color: #1a202c;
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+    
+    .feature p {
+        color: #4a5568;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    /* Sample Content */
+    .sample-content {
+        background: white;
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-bottom: 60px;
+    }
+    
+    .sample-content h2 {
+        color: #1a202c;
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+    
+    .sample-item {
+        border-left: 4px solid #667eea;
+        padding: 20px 0 20px 25px;
+        margin-bottom: 25px;
+        border-radius: 0 8px 8px 0;
+        background: linear-gradient(90deg, rgba(102, 126, 234, 0.05) 0%, transparent 100%);
+    }
+    
+    .sample-item:last-child {
+        margin-bottom: 0;
+    }
+    
+    .sample-item h4 {
+        color: #1a202c;
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    
+    .sample-item .ai-analysis {
+        color: #4a5568;
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+        line-height: 1.5;
+    }
+    
+    .sample-item .key-points {
+        color: #667eea;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+    /* Stats Section */
+    .stats {
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        padding: 40px;
+        margin-bottom: 60px;
+        text-align: center;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+    }
+    
+    .stat-item {
+        color: white;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        display: block;
+        margin-bottom: 8px;
+    }
+    
+    .stat-label {
+        font-size: 1rem;
+        opacity: 0.9;
+        font-weight: 400;
+    }
+    
+    /* Social Proof */
+    .social-proof {
+        background: white;
+        border-radius: 16px;
+        padding: 40px;
+        text-align: center;
+        margin-bottom: 60px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .testimonial {
+        font-size: 1.2rem;
+        color: #4a5568;
+        font-style: italic;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+    
+    .testimonial-author {
+        color: #1a202c;
+        font-weight: 600;
+    }
+    
+    /* Footer CTA */
+    .footer-cta {
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        padding: 50px;
+        text-align: center;
+        color: white;
+        margin-bottom: 40px;
+    }
+    
+    .footer-cta h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+    
+    .footer-cta p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 30px;
+    }
+    
+    /* Footer */
+    .footer {
+        text-align: center;
+        color: rgba(255,255,255,0.8);
+        padding: 30px 0;
+        font-size: 0.9rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            padding: 15px;
+        }
+        
+        .hero {
+            padding: 40px 0;
+        }
+        
+        .cta-main {
+            padding: 30px 20px;
+        }
+        
+        .form-container {
+            flex-direction: column;
+        }
+        
+        .form-container input {
+            min-width: auto;
+        }
+        
+        .features {
+            grid-template-columns: 1fr;
+        }
+        
+        .feature {
+            padding: 30px 20px;
+        }
+        
+        .sample-content {
+            padding: 30px 20px;
+        }
+        
+        .stats {
+            padding: 30px 20px;
+        }
+        
+        .footer-cta {
+            padding: 30px 20px;
+        }
+    }
+    
+    /* Animation Classes */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+    }
+    
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="badge">🚀 Powered by AI • Trusted by 10K+ professionals</div>
+            <h1>🤖 AI Pulse Weekly</h1>
+            <p class="subtitle">Your Weekly Dose of AI & Robotics Intelligence</p>
+            <p class="tagline">Stay ahead of the curve with the latest breakthroughs, research papers, and industry insights — all curated and summarized by AI for busy professionals and enthusiasts.</p>
+        </div>
+
+    <!-- Main CTA -->
+    <div class="cta-main fade-in">
+        <div class="signup-form">
+            <h2>Join the AI Revolution</h2>
+            <p class="value-prop">Get the smartest AI newsletter delivered to your inbox every Friday. Zero fluff, maximum insight.</p>
+            
+           
+            <form action="https://gmail.us1.list-manage.com/subscribe/post?u=01418ad92ff62290fe6c2b97d&amp;id=5fb6b68e7b&amp;f_id=00b577e1f0" method="post" id="mc-embedded-subscribe-form" target="_blank">
+                <div class="form-container">
+                    <input type="email" name="EMAIL" placeholder="your@email.com" required>
+                    <button type="submit" class="subscribe-btn">
+                        Get AI Pulse Free
+                    </button>
+                </div>
+            </form>
+            
+            <div class="trust-indicators">
+                <div class="trust-item">
+                    <span>✅</span> Free forever
+                </div>
+                <div class="trust-item">
+                    <span>✅</span> No spam
+                </div>
+                <div class="trust-item">
+                    <span>✅</span> Unsubscribe anytime
+                </div>
+                <div class="trust-item">
+                    <span>✅</span> 5-min weekly read
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Stats -->
+    <div class="stats fade-in">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Sources Monitored</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Articles Analyzed Weekly</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">5min</span>
+                <span class="stat-label">Average Read Time</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">95%</span>
+                <span class="stat-label">Open Rate</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Features -->
+    <div class="features">
+        <div class="feature fade-in">
+            <span class="feature-icon">🔬</span>
+            <h3>Cutting-Edge Research</h3>
+            <p>ArXiv papers, university breakthroughs, and conference highlights — all distilled into actionable insights you can understand in minutes.</p>
+        </div>
+        
+        <div class="feature fade-in">
+            <span class="feature-icon">💼</span>
+            <h3>Industry Intelligence</h3>
+            <p>Funding rounds, acquisitions, product launches, and strategic moves from OpenAI, Google, Microsoft, and emerging AI startups.</p>
+        </div>
+        
+        <div class="feature fade-in">
+            <span class="feature-icon">⚡</span>
+            <h3>AI-Powered Curation</h3>
+            <p>Advanced AI algorithms analyze thousands of sources to surface only the most important developments — saving you hours of research.</p>
+        </div>
+        
+        <div class="feature fade-in">
+            <span class="feature-icon">🎯</span>
+            <h3>Actionable Insights</h3>
+            <p>Every story comes with key takeaways, impact analysis, and implications for your business or career in AI.</p>
+        </div>
+        
+        <div class="feature fade-in">
+            <span class="feature-icon">🚀</span>
+            <h3>Future-Focused</h3>
+            <p>Spot trends before they become mainstream. Get insights into what's coming next in AI and robotics.</p>
+        </div>
+        
+        <div class="feature fade-in">
+            <span class="feature-icon">📱</span>
+            <h3>Mobile Optimized</h3>
+            <p>Perfectly formatted for reading on any device. Catch up during your commute or coffee break.</p>
+        </div>
+    </div>
+    
+    <!-- Sample Content -->
+    <div class="sample-content fade-in">
+        <h2>📰 What You'll Get Every Friday</h2>
+        
+        <div class="sample-item">
+            <h4>🔬 Research Spotlight: "GPT-5 Architecture Leaked in Stanford Paper"</h4>
+            <p class="ai-analysis"><strong>🤖 AI Analysis:</strong> Breakthrough in transformer efficiency reveals 10x performance gains while reducing computational costs. Potential implications for edge AI deployment and democratization of large language models.</p>
+            <p class="key-points"><strong>🔑 Key Insights:</strong> Technology: transformer, efficiency | Impact: High | Timeline: 6-12 months</p>
+        </div>
+        
+        <div class="sample-item">
+            <h4>💼 Industry Watch: "Anthropic Raises $4B Series C Led by Google"</h4>
+            <p class="ai-analysis"><strong>🤖 AI Analysis:</strong> Strategic partnership signals Google's aggressive AI safety positioning. Valuation reaches $60B, competing directly with OpenAI's market dominance.</p>
+            <p class="key-points"><strong>🔑 Key Insights:</strong> Business: funding, google | Investment: $4B | Market Impact: High</p>
+        </div>
+        
+        <div class="sample-item">
+            <h4>🤖 Robotics Breakthrough: "Tesla Bot Achieves Human-Level Dexterity"</h4>
+            <p class="ai-analysis"><strong>🤖 AI Analysis:</strong> Major advancement in robotic manipulation could accelerate household and industrial automation adoption. Production timeline accelerated to Q2 2025.</p>
+            <p class="key-points"><strong>🔑 Key Insights:</strong> Technology: robotics, dexterity | Company: Tesla | Commercial Impact: Very High</p>
+        </div>
+    </div>
+    
+    <!-- Social Proof -->
+    <div class="social-proof fade-in">
+        <p class="testimonial">"The best AI newsletter I've found. Saves me 3+ hours of research every week and keeps me ahead of my peers in the industry."</p>
+        <p class="testimonial-author">— Sarah Chen, ML Engineer</p>
+    </div>
+    
+    <!-- Footer CTA -->
+    <div class="footer-cta fade-in">
+        <h2>Don't Miss the AI Revolution</h2>
+        <p>Join thousands of professionals who rely on AI Pulse Weekly to stay informed and ahead of the curve.</p>
+        
+        <!-- DUPLICATE FORM FOR BOTTOM CTA -->
+        <form action="https://YOUR-ACCOUNT.us1.list-manage.com/subscribe/post?u=YOUR-USER-ID&amp;id=YOUR-LIST-ID" method="post" target="_blank">
+            <div class="form-container">
+                <input type="email" name="EMAIL" placeholder="your@email.com" required>
+                <button type="submit" class="subscribe-btn">
+                    Join AI Pulse
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <p>🤖 Powered by AI • Built for the Future • ©️ 2024 AI Pulse Weekly</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">
+            Questions? Reply to any newsletter or email hello@aipulseweekly.com
+        </p>
+    </div>
+</div>
+
+<script>
+    // Smooth animations on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Typewriter effect for hero title
+    function typeWriter(element, text, speed = 100) {
+        element.textContent = '';
+        let i = 0;
+        
+        function type() {
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+            }
+        }
+        
+        type();
+    }
+    
+    // Initialize typewriter effect
+    window.addEventListener('load', () => {
+        const heroTitle = document.querySelector('.hero h1');
+        const originalText = heroTitle.textContent;
+        setTimeout(() => typeWriter(heroTitle, originalText, 80), 500);
+    });
+    
+    // Form validation and enhancement
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            const email = this.querySelector('input[name="EMAIL"]').value;
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                e.preventDefault();
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Optional: Add tracking/analytics here
+            // gtag('event', 'newsletter_signup', { 'email': email });
+        });
+    });
+    
+    // Smooth scrolling for any internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Performance optimization: Lazy load images if any are added
+    if ('IntersectionObserver' in window) {
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    }
+</script>
+
+
+</body>
+</html>
